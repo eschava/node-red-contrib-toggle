@@ -1,0 +1,90 @@
+<script type="text/javascript">
+    RED.nodes.registerType('toggle',{
+        category: 'function',
+        color: '#E2D96E',
+        defaults: {
+            name: {value:""},
+            onOffTopic: {value:""},
+            onValue: {value:"", validate: RED.validators.typedInput("onType")},
+            onType: {value:"str"},
+            offValue: {value:"", validate: RED.validators.typedInput("offType")},
+            offType: {value:"str"},
+            offValue: {value:"", validate: RED.validators.typedInput("offType")},
+            offType: {value:"str"},
+            toggleTopic: {value:""},
+            toggleValue: {value:"", validate: RED.validators.typedInput("toggleType")},
+            toggleType: {value:"str"},
+            passOnOff: {value: ""},
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-toggle-on",
+        label: function() {
+            return this.name || "Toggle";
+        },
+        oneditprepare: function() {
+            $('#node-input-onValue').typedInput({
+                default: 'str',
+                typeField: $("#node-input-onType"),
+                types: ['bool','str','num']
+            });
+            $('#node-input-offValue').typedInput({
+                default: 'str',
+                typeField: $("#node-input-offType"),
+                types: ['bool','str','num']
+            });
+            $('#node-input-toggleValue').typedInput({
+                default: 'str',
+                typeField: $("#node-input-toggleType"),
+                types: ['bool','str','num', {value: "any", label: "Any except ON/OFF", hasValue: false}]
+            });
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="toggle">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-onOffTopic"><i class="icon-tag"></i>On/Off topic</label>
+        <input type="text" id="node-input-onOffTopic">
+    </div>
+    <div class="form-row">
+        <label for="node-input-onValue">ON value</label>
+        <input type="text" id="node-input-onValue" style="width:70%">
+        <input type="hidden" id="node-input-onType">
+    </div>
+    <div class="form-row">
+        <label for="node-input-offValue">OFF value</label>
+        <input type="text" id="node-input-offValue" style="width:70%">
+        <input type="hidden" id="node-input-offType">
+    </div>
+    <div class="form-row">
+        <label for="node-input-toggleTopic"><i class="icon-tag"></i>Toggle topic</label>
+        <input type="text" id="node-input-toggleTopic">
+    </div>
+    <div class="form-row">
+        <label for="node-input-toggleValue">Toggle value</label>
+        <input type="text" id="node-input-toggleValue" style="width:70%">
+        <input type="hidden" id="node-input-toggleType">
+    </div>
+    <div class="form-row">
+        <label for="node-input-passOnOff">Pass ON/OFF message</label>
+        <select id="node-input-passOnOff">
+            <option value="">No</option>
+            <option value="ifChanged">If changed</option>
+            <option value="always">Always</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="toggle">
+    <p>Toggle switch node for Node-red</p>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://github.com/eschava/node-red-contrib-toggle">GitHub</a> - the node github repository</li>
+    </ul>
+</script>
