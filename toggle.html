@@ -26,17 +26,17 @@
             $('#node-input-onValue').typedInput({
                 default: 'str',
                 typeField: $("#node-input-onType"),
-                types: ['bool','str','num']
+                types: ['str', 'num', 'bool']
             });
             $('#node-input-offValue').typedInput({
                 default: 'str',
                 typeField: $("#node-input-offType"),
-                types: ['bool','str','num']
+                types: ['str', 'num', 'bool']
             });
             $('#node-input-toggleValue').typedInput({
                 default: 'str',
                 typeField: $("#node-input-toggleType"),
-                types: ['bool','str','num', {value: "any", label: "Any except ON/OFF", hasValue: false}]
+                types: [{value: "any", label: "Any except ON/OFF", hasValue: false}, 'str', 'num', 'bool']
             });
         }
     });
@@ -49,7 +49,7 @@
     </div>
     <div class="form-row">
         <label for="node-input-onOffTopic"><i class="icon-tag"></i>On/Off topic</label>
-        <input type="text" id="node-input-onOffTopic">
+        <input type="text" id="node-input-onOffTopic" placeholder="&lt;any&gt;">
     </div>
     <div class="form-row">
         <label for="node-input-onValue">ON value</label>
@@ -63,7 +63,7 @@
     </div>
     <div class="form-row">
         <label for="node-input-toggleTopic"><i class="icon-tag"></i>Toggle topic</label>
-        <input type="text" id="node-input-toggleTopic">
+        <input type="text" id="node-input-toggleTopic" placeholder="&lt;any&gt;">
     </div>
     <div class="form-row">
         <label for="node-input-toggleValue">Toggle value</label>
@@ -71,7 +71,7 @@
         <input type="hidden" id="node-input-toggleType">
     </div>
     <div class="form-row">
-        <label for="node-input-passOnOff">Pass ON/OFF message</label>
+        <label for="node-input-passOnOff">Pass through ON/OFF messages</label>
         <select id="node-input-passOnOff">
             <option value="">No</option>
             <option value="ifChanged">If changed</option>
@@ -82,6 +82,17 @@
 
 <script type="text/html" data-help-name="toggle">
     <p>Toggle switch node for Node-red</p>
+
+    <p>This node could be a companion for any switch (physical or virtual), storing its state and providing "toggle" operation
+    without need of using function nodes or flow/global variables</p>
+
+    <p>Pass-through</p>
+    <p>Node has three pass-through modes:</p>
+    <ul>
+        <li>"No" means that node sends a message only when state is toggled. ON/OFF input messages just update internal state of the node.</li>
+        <li>"If changed" sends a message for ON/OFF input message only once it differs from the previous state. And obviously message is always sent for "toggle" message.</li>
+        <li>"Always" - output message is always sent as a reaction on an input message</li>
+    </ul>
 
     <h3>References</h3>
     <ul>
