@@ -114,5 +114,5 @@ v0.0.2 Docs updated
 v0.0.1 Initial release
 
 ## Credits
-- [hendrikroth](https://github.com/HendrikRoth)
+- [eschava](https://github.com/eschava)
 - [StephanStS](https://github.com/StephanStS)
