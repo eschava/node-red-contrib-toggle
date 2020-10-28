@@ -1,8 +1,8 @@
 # node-red-contrib-toggle
-Toggle switch node for Node-red
+Toggle switch node for Node-red.
 
-This node could be a companion for any switch (physical or virtual), storing its state and providing "toggle" operation
-without need of using function nodes or flow/global variables
+This node is a companion for any switch (physical or virtual), storing its state and providing toggle operation
+without need of using function nodes or flow/global variables.
 
 ![node-appearance](assets/node-appearance.png "Node appearance")  
 **Fig. 1:** Node appearance
@@ -35,12 +35,12 @@ These attributes can be of type
 * number
 * boolean
 
-They can be set to the value you want to be the keyword where the actions **switch to ON**, **switch to OFF** and **toggle** take place (*execution command*).
+They are set to the values you want to be the keywords within `msg.payload` when the actions **switch to ON**, **switch to OFF** and **toggle** shall take place (*execution command*).
 
 **Remark:** If you do not set a value to one of the attributes the according method (e.g. switch ON) can not be executed by the node (it needs a value to compare...).
 
-#### On/Off topic resp. Toggle topic
-If you set the topic attributes to a value, the input `msg` needs to contain the same topic name to execute **On/Off** resp. **toggle**.
+#### On/Off topic resp. Toggle topic (optional)
+If you set the topic attributes to a value, the input `msg` needs to contain the same topic name to execute **On/Off** resp. **toggle** in addition to the `msg.payload` value containing the execution command.
 
 #### Pass through ON/OFF messages
 The node has three pass through modes:  
@@ -52,14 +52,14 @@ The node has three pass through modes:
 <a name="input"></a>
 ### Input
 The input `msg.payload` contains the **execution command** to the node.  
-It needs to be identical to the values you configured in the configuration dialog.
+The value needs to be identical to the values you configured in the configuration dialog.
 
-If a string value is set to the configuration attributes ***On/Off topic*** or ***Toggle topic*** the `msg.topic` property must contain the same string value to execute the command within `msg.payload`.
+If a (string) value is set to the configuration attributes ***On/Off topic*** or ***Toggle topic***, the `msg.topic` property must contain the same string value to execute the command given in `msg.payload`.
 
 An example `msg` contents is shown for ***On/Off topic*** = "onofftopic":
 
 ![node-settings](assets/topic-usage.png "Use of topics")  
-**Fig. 3:** `msg` example when using topics
+**Fig. 3:** Example `msg` when using topics
 
 
 <a name="output"></a>
@@ -84,25 +84,24 @@ Initially it shows no state.
 
 <a name="example1"></a>
 ### Example 1: Basic usage
-This example shows the node basic usage.  
+This example shows the basic usage.  
 The configuration is set to **boolean** `true` resp. `false` to switch on resp. switch off and **no toggle option**.
 
 <img src="assets/usage-basic.png" title="Example 1" width="550" />
 
 [**BasicUsage.json**](examples/BasicUsage.json)  
-
 **Fig. 4:** Basic usage example
 
 
 <a name="example2"></a>
 ### Example 2: Usage with topics
 This example shows the usage of topics.  
-The configuration is set to **strings** (`switchON`, `switchOFF`) to switch on resp. off and a **string** (`toggleSTATE`) to toggle the switch.
+The configuration is set to **strings** (`switchON`, `switchOFF`) to switch on resp. off and a **string** (`toggleSTATE`) to toggle the switch.  
+Additionally, the topics are set to `onofftopic` (for the commands `switchON` and `switchOFF`) and to `toggletopic` for the toggle operation (command `toggleSTATE`).
 
 <img src="assets/usage-with-topic.png" title="Example 2" width="600" />
 
 [**TopicUsage.json**](examples/TopicUsage.json)  
-
 **Fig. 5:** Topic usage example
 
 
