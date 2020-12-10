@@ -117,7 +117,7 @@ Additionally, the topics are set to `onofftopic` (for the commands `switchON` an
 
 
 ## Version history
-v0.1.1 Toggle example added to docu
+v0.1.1 Toggle example added to docu  
 v0.1.0 Docu rework
 
 v0.0.2 Docs updated
