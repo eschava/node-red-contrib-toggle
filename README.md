@@ -83,7 +83,7 @@ Initially it shows no state.
 ***
 
 <a name="example1"></a>
-### Example 1: Basic on/off usage
+### Example 1: Basic ON/OFF usage
 This example shows the basic usage of the on and off commands.  
 The configuration is set to **boolean** `true` resp. `false` to switch on resp. switch off and **no toggle option**.
 
@@ -117,6 +117,7 @@ Additionally, the topics are set to `onofftopic` (for the commands `switchON` an
 
 
 ## Version history
+v0.1.1 Toggle example added to docu
 v0.1.0 Docu rework
 
 v0.0.2 Docs updated
