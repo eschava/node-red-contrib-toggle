@@ -83,8 +83,8 @@ Initially it shows no state.
 ***
 
 <a name="example1"></a>
-### Example 1: Basic usage
-This example shows the basic usage.  
+### Example 1: Basic ON/OFF usage
+This example shows the basic usage of the on and off commands.  
 The configuration is set to **boolean** `true` resp. `false` to switch on resp. switch off and **no toggle option**.
 
 <img src="assets/usage-basic.png" title="Example 1" width="550" />
@@ -92,21 +92,32 @@ The configuration is set to **boolean** `true` resp. `false` to switch on resp. 
 [**BasicUsage.json**](examples/BasicUsage.json)  
 **Fig. 4:** Basic usage example
 
-
 <a name="example2"></a>
-### Example 2: Usage with topics
+### Example 2: Basic toggle usage
+This example shows the basic usage of the toggle command.  
+The configuration is set to **boolean** `true` resp. `false` and to toggle with all other `msg.payload`/`msg.topic` combinations.
+
+<img src="assets/usage-toggle.png" title="Example 2" width="550" />
+
+[**ToggleUsage.json**](examples/ToggleUsage.json)  
+**Fig. 5:** Toggle usage example
+
+
+<a name="example3"></a>
+### Example 3: Usage with topics
 This example shows the usage of topics.  
 The configuration is set to **strings** (`switchON`, `switchOFF`) to switch on resp. off and a **string** (`toggleSTATE`) to toggle the switch.  
 Additionally, the topics are set to `onofftopic` (for the commands `switchON` and `switchOFF`) and to `toggletopic` for the toggle operation (command `toggleSTATE`).
 
-<img src="assets/usage-with-topic.png" title="Example 2" width="600" />
+<img src="assets/usage-with-topic.png" title="Example 3" width="600" />
 
 [**TopicUsage.json**](examples/TopicUsage.json)  
-**Fig. 5:** Topic usage example
+**Fig. 6:** Topic usage example
 
 
 
 ## Version history
+v0.1.1 Toggle example added to docu  
 v0.1.0 Docu rework
 
 v0.0.2 Docs updated
